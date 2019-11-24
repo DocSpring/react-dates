@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 import { Portal } from 'react-portal';
@@ -38,6 +39,7 @@ import {
 const propTypes = forbidExtraProps({
   ...withStylesPropTypes,
   ...SingleDatePickerShape,
+  inputStyle: PropTypes.object,
 });
 
 const defaultProps = {
@@ -47,6 +49,7 @@ const defaultProps = {
 
   // input related props
   component: 'input',
+  inputStyle: null,
   id: 'date',
   placeholder: 'Date',
   ariaLabel: undefined,
@@ -522,6 +525,7 @@ class SingleDatePicker extends React.PureComponent {
   render() {
     const {
       component,
+      inputStyle,
       id,
       placeholder,
       ariaLabel,
@@ -563,6 +567,7 @@ class SingleDatePicker extends React.PureComponent {
     const input = (
       <SingleDatePickerInputController
         component={component}
+        inputStyle={inputStyle}
         id={id}
         placeholder={placeholder}
         ariaLabel={ariaLabel}

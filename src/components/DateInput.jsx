@@ -28,6 +28,7 @@ const FANG_STROKE_BOTTOM = `M0,0 ${FANG_WIDTH_PX / 2},${FANG_HEIGHT_PX} ${FANG_W
 const propTypes = forbidExtraProps({
   ...withStylesPropTypes,
   component: componentPropType,
+  inputStyle: PropTypes.object,
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   displayValue: PropTypes.string,
@@ -58,6 +59,7 @@ const propTypes = forbidExtraProps({
 
 const defaultProps = {
   component: 'input',
+  inputStyle: null,
   placeholder: 'Select Date',
   displayValue: '',
   ariaLabel: undefined,
@@ -177,6 +179,7 @@ class DateInput extends React.PureComponent {
     } = this.state;
     const {
       component,
+      inputStyle,
       id,
       placeholder,
       ariaLabel,
@@ -227,6 +230,7 @@ class DateInput extends React.PureComponent {
             focused && styles.DateInput_input__focused,
             disabled && styles.DateInput_input__disabled,
           )}
+          style={inputStyle}
           aria-label={ariaLabel === undefined ? placeholder : ariaLabel}
           type="text"
           id={id}

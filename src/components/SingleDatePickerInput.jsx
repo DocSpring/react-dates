@@ -20,6 +20,7 @@ import { ICON_BEFORE_POSITION, ICON_AFTER_POSITION, OPEN_DOWN } from '../constan
 const propTypes = forbidExtraProps({
   ...withStylesPropTypes,
   component: componentPropType,
+  inputStyle: PropTypes.object,
   id: PropTypes.string.isRequired,
   children: PropTypes.node,
   placeholder: PropTypes.string,
@@ -60,6 +61,7 @@ const propTypes = forbidExtraProps({
 const defaultProps = {
   children: null,
   component: 'input',
+  inputStyle: null,
   placeholder: 'Select Date',
   ariaLabel: undefined,
   displayValue: '',
@@ -97,6 +99,7 @@ const defaultProps = {
 
 function SingleDatePickerInput({
   component,
+  inputStyle,
   id,
   children,
   placeholder,
@@ -171,6 +174,7 @@ function SingleDatePickerInput({
 
       <DateInput
         component={component}
+        inputStyle={inputStyle}
         id={id}
         placeholder={placeholder}
         ariaLabel={ariaLabel}

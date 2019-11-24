@@ -35,6 +35,7 @@ const propTypes = forbidExtraProps({
   onFocusChange: PropTypes.func.isRequired,
 
   component: componentPropType,
+  inputStyle: PropTypes.object,
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   ariaLabel: PropTypes.string,
@@ -81,6 +82,7 @@ const defaultProps = {
   focused: false,
 
   component: 'input',
+  inputStyle: null,
   placeholder: '',
   ariaLabel: undefined,
   screenReaderMessage: 'Date',
@@ -201,6 +203,7 @@ export default class SingleDatePickerInputController extends React.PureComponent
     const {
       children,
       component,
+      inputStyle,
       id,
       placeholder,
       ariaLabel,
@@ -234,6 +237,7 @@ export default class SingleDatePickerInputController extends React.PureComponent
     return (
       <SingleDatePickerInput
         component={component}
+        inputStyle={inputStyle}
         id={id}
         placeholder={placeholder}
         ariaLabel={ariaLabel}
